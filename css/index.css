@@ -695,7 +695,6 @@ details summary::-webkit-details-marker {
 }
 
 .repository_card .private_tag {
-  content: "Private";
   background: #fff;
   border: 1px solid var(--color-border);
   font-weight: 500;

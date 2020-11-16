@@ -68,8 +68,10 @@ function mapRepoData({
             class="repo_name flex hv-undeline"
             data-is-private="false"
             target="blank"
-            >${name}</a
-          >
+            >${name}</a>
+
+          ${isPrivate ? `<span class="private_tag">Private</span>`  : ''}
+
         </div>
         ${
           description
