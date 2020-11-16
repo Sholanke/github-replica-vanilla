@@ -64,7 +64,7 @@ function mapRepoData({
       <div class="_top">
         <div class="flex">
           <a
-            href="https://github.com/Sholanke/githubRepoReplica"
+            href="${url}"
             class="repo_name flex hv-undeline"
             data-is-private="false"
             target="blank"
