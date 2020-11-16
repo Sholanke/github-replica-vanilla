@@ -62,7 +62,7 @@ fetch("https://api.github.com/graphql", {
   .then(({ data }) => {
     const { viewer } = data;
     mapUserData(viewer);
-    viewer.repositories.nodes.forEach((repo) => {
+    [...viewer.repositories.nodes].reverse().forEach((repo) => {
       mapRepoData(repo);
     });
   });
