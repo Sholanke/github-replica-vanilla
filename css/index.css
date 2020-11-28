@@ -407,9 +407,9 @@ details summary::-webkit-details-marker {
 }
 
 .header_search_rapper {
-  background: #24292e;
-  max-width: 272px;
-  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -423,32 +423,6 @@ details summary::-webkit-details-marker {
   .header_search_rapper {
     -webkit-transition: 0.3s ease-out;
     transition: 0.3s ease-out;
-  }
-  .header_search_rapper[data-is-wide="true"] {
-    max-width: 400px;
-    background: rgba(255, 255, 255, 0);
-  }
-  .header_search_rapper[data-is-wide="true"] * {
-    color: #444d56;
-  }
-  .header_search_rapper[data-is-wide="true"] .header_search_rapper_slash-icon {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .header_search_rapper[data-is-wide="true"] input {
-    background-color: #fafbfc;
-  }
-  .header_search_rapper[data-is-wide="true"] input::-webkit-input-placeholder {
-    color: #444d56;
-  }
-  .header_search_rapper[data-is-wide="true"] input:-ms-input-placeholder {
-    color: #444d56;
-  }
-  .header_search_rapper[data-is-wide="true"] input::-ms-input-placeholder {
-    color: #444d56;
-  }
-  .header_search_rapper[data-is-wide="true"] input::placeholder {
-    color: #444d56;
   }
 }
 
@@ -466,6 +440,39 @@ details summary::-webkit-details-marker {
   width: 100%;
   font-size: 14px;
   caret-color: royalblue;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+@media (min-width: 863px) {
+  .header_search_rapper input {
+    min-width: 272px;
+  }
+  .header_search_rapper input:focus {
+    min-width: 472px;
+    border: 1px solid #0080ff;
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.493);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.493);
+  }
+  .header_search_rapper input:focus + .header_search_rapper_slash-icon {
+    opacity: 0;
+  }
+  .header_search_rapper input:focus::-webkit-input-placeholder {
+    color: #7c7c7c;
+  }
+  .header_search_rapper input:focus:-ms-input-placeholder {
+    color: #7c7c7c;
+  }
+  .header_search_rapper input:focus::-ms-input-placeholder {
+    color: #7c7c7c;
+  }
+  .header_search_rapper input:focus::placeholder {
+    color: #7c7c7c;
+  }
+}
+
+.header_search_rapper input:focus {
+  background: #ffffff;
 }
 
 .header_search_rapper input::-webkit-input-placeholder {

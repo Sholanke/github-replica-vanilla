@@ -213,39 +213,23 @@
 //header search bar
 
 .header_search_rapper {
-  background: #24292e;
-  max-width: 272px;
-  width: 100%;
+  // background: #24292e;
+  width: fit-content;
   position: relative;
   display: flex;
   align-items: center;
 
   @include desktop {
     transition: 0.3s ease-out;
-    &[data-is-wide="true"] {
-      max-width: 400px;
-      background: rgba(255, 255, 255, 0);
-      * {
-        color: #444d56;
-      }
-      .header_search_rapper_slash-icon {
-        opacity: 0;
-        pointer-events: none;
-      }
-      input {
-        background-color: #fafbfc;
-        &::placeholder {
-          color: #444d56;
-        }
-      }
-    }
   }
 
   &_slash-icon {
     position: absolute;
     right: 8px;
     transition: 0.3s ease-out;
+
   }
+
   input {
     padding: 6px 12px;
     border: 1px solid #444d56;
@@ -253,8 +237,25 @@
     width: 100%;
     font-size: 14px;
     caret-color: royalblue;
+    transition: .2s ease-in-out;
+
+    @include desktop {
+      min-width: 272px;
+      &:focus {
+        min-width: 472px;
+        border: 1px solid #0080ff;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.493);
+        & + .header_search_rapper_slash-icon{
+          opacity: 0;
+        }
+        &::placeholder {
+          color: #7c7c7c;
+        }
+      }
+    }
 
     &:focus {
+      background: #ffffff;
     }
 
     &::placeholder {
