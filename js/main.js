@@ -1,23 +1,19 @@
-const gitHubDetailsNode = gitHubDOM.getAllNode(".github_details");
+// private scope
 
-//onblur of minimodals
-Array.from(gitHubDetailsNode).forEach((detail) => {
-  detail.addEventListener("blur", () => {
-    detail.removeAttribute("open");
-  });
-});
+{
+  const gitHubDetailsNode = gitHubDOM.getAllNode(".github_details");
 
-fetch("https://api.github.com/graphql", {
-  method: "POST",
-  mode: "cors",
-  cache: "no-cache",
-  referrerPolicy: "no-referrer",
-  headers: {
-    "Content-Type": "application/json",
-    authorization: `token ${token} `,
-  },
-  body: JSON.stringify({
-    query: `
+  fetch("https://api.github.com/graphql", {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    referrerPolicy: "no-referrer",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `token ${token} `,
+    },
+    body: JSON.stringify({
+      query: `
   {
     viewer {
       login
@@ -54,25 +50,58 @@ fetch("https://api.github.com/graphql", {
     }
   }
   `,
-  }),
-})
-  .then((res) => {
-    return res.json();
+    }),
   })
-  .then(({ data }) => {
-    const { viewer } = data;
-    mapUserData(viewer);
-    [...viewer.repositories.nodes].reverse().forEach((repo) => {
-      mapRepoData(repo);
+    .then((res) => {
+      return res.json();
+    })
+    .then(({ data }) => {
+      const { viewer } = data;
+      mapUserData(viewer);
+      [...viewer.repositories.nodes].reverse().forEach((repo) => {
+        mapRepoData(repo);
+      });
+    });
+
+  //scroll animation on repo header
+  const headerUserNode = gitHubDOM.getNode(".repo_app_header-user");
+
+  window.addEventListener("scroll", (e) => {
+    if (window.scrollY >= 370) {
+      headerUserNode.classList.remove("hide");
+    } else {
+      headerUserNode.classList.add("hide");
+    }
+  });
+
+  //onblur of minimodals
+  Array.from(gitHubDetailsNode).forEach((currentTarget) => {
+    const detailsNode = currentTarget.querySelector("details");
+    currentTarget.addEventListener("blur", () => {
+      setTimeout(() => {
+        detailsNode.open = false;
+        detailsNode.style.pointerEvents = "none";
+      }, 200);
+    });
+    currentTarget.addEventListener("focus", () => {
+      detailsNode.open = true;
+      detailsNode.style.pointerEvents = "unset";
     });
   });
 
-//scroll animation on repo header
-const headerUserNode = gitHubDOM.getNode(".repo_app_header-user");
-window.addEventListener("scroll", (e) => {
-  if (window.scrollY >= 370) {
-    headerUserNode.classList.remove("hide");
-  } else {
-    headerUserNode.classList.add("hide");
-  }
-});
+  //hamburger
+
+  const hamBurgerButton = gitHubDOM.getNode(".js_hamburger_btn");
+  const mobileLinks = gitHubDOM.getNode(".mbl_links_container");
+
+  hamBurgerButton.addEventListener("click", () => {
+    const mobileLinksClassList = mobileLinks.classList;
+    const mobileLinksClassListArray = Array.from(mobileLinksClassList);
+
+    if (mobileLinksClassListArray.includes("is_open")) {
+      mobileLinksClassList.remove("is_open");
+    } else {
+      mobileLinksClassList.add("is_open");
+    }
+  });
+}

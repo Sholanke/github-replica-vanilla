@@ -35,6 +35,10 @@ details summary::-webkit-details-marker {
   display: none;
 }
 
+.github_details details {
+  pointer-events: none;
+}
+
 .mbl {
   display: none;
 }
