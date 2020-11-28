@@ -152,6 +152,10 @@ details summary::-webkit-details-marker {
           justify-content: center;
 }
 
+.app_page_loader.hide {
+  display: none;
+}
+
 .app_page_loader svg {
   height: 100px;
   height: 100px;
@@ -440,8 +444,8 @@ details summary::-webkit-details-marker {
   width: 100%;
   font-size: 14px;
   caret-color: royalblue;
-  -webkit-transition: .2s ease-in-out;
-  transition: .2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 @media (min-width: 863px) {
@@ -501,6 +505,10 @@ details summary::-webkit-details-marker {
           animation-fill-mode: forwards;
   -webkit-animation-duration: 0.2s;
           animation-duration: 0.2s;
+}
+
+.repo_container.hide {
+  display: none;
 }
 
 .repo_container .app_wrapper .app_max_width {
@@ -1036,5 +1044,51 @@ details summary::-webkit-details-marker {
   padding: 8px 16px;
   display: block;
   color: #24292e;
+}
+
+.app_page_loader {
+  min-height: calc(100vh - 90px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.app_page_loader svg {
+  height: 100px;
+  height: 100px;
+  -webkit-animation-name: breathe;
+          animation-name: breathe;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.app_page_loader svg path {
+  fill: #24292e;
+}
+
+@keyframes breathe {
+  0% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+    opacity: 0.7;
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+    opacity: 0.7;
+  }
 }
 /*# sourceMappingURL=index.css.map */

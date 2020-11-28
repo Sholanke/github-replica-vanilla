@@ -30,6 +30,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &.hide {
+    display: none;
+  }
+
   svg {
     height: 100px;
     height: 100px;
@@ -227,7 +232,6 @@
     position: absolute;
     right: 8px;
     transition: 0.3s ease-out;
-
   }
 
   input {
@@ -237,7 +241,7 @@
     width: 100%;
     font-size: 14px;
     caret-color: royalblue;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 
     @include desktop {
       min-width: 272px;
@@ -245,7 +249,7 @@
         min-width: 472px;
         border: 1px solid #0080ff;
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.493);
-        & + .header_search_rapper_slash-icon{
+        & + .header_search_rapper_slash-icon {
           opacity: 0;
         }
         &::placeholder {
@@ -272,6 +276,9 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-duration: 0.2s;
+  &.hide {
+    display: none;
+  }
   .app_wrapper {
     .app_max_width {
       max-width: 1216px;
@@ -674,5 +681,39 @@
     padding: 8px 16px;
     display: block;
     color: #24292e;
+  }
+}
+
+//loader
+.app_page_loader {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    height: 100px;
+    height: 100px;
+    animation-name: breathe;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+
+    path {
+      fill: #24292e;
+    }
+  }
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.7);
+    opacity: 0.7;
   }
 }
