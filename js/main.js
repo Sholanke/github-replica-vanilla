@@ -11,46 +11,10 @@
         referrerPolicy: "no-referrer",
         headers: {
           "Content-Type": "application/json",
-          authorization: `token ${token} `,
+          authorization: `token ${GITHUB_DECODED_TOKEN} `,
         },
         body: JSON.stringify({
-          query: `
-  {
-    viewer {
-      login
-      avatarUrl
-      name
-      bio
-      status {
-        emojiHTML
-        message
-        __typename
-      }
-      repositories(last: 20, isFork: false) {
-        nodes {
-          name
-          description
-          url
-          stargazerCount
-          updatedAt
-          forkCount
-          isPrivate
-          languages(first: 5, orderBy: {field: SIZE, direction: DESC}) {
-            nodes {
-              color
-              name
-              __typename
-            }
-            __typename
-          }
-          __typename
-        }
-        __typename
-      }
-      __typename
-    }
-  }
-  `,
+          query: GITHUB_REPO_QUERY_STRING,
         }),
       })
         .then((res) => {
@@ -124,7 +88,7 @@
 
     pageLoaderNode.classList.add("hide")
     repoContainerNode.classList.remove("hide");
-    
+
     animateRepoHeader();
   };
 
