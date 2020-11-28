@@ -4,10 +4,10 @@ A go at github's repositories page.
 
 # Actual page shots from this project.
 
-![Screen shot](assets/pageScreenShots/Screenshot 2020-11-28 at 04.48.04.png)
+![Screenshot](/assets/pageScreenShots/Screenshot 2020-11-28 at 04.48.04.png)
 
-![Screen shot](assets/pageScreenShots/Screenshot 2020-11-28 at 04.48.15.png)
+![Screenshot](/assets/pageScreenShots/Screenshot 2020-11-28 at 04.48.15.png)
 
-![Screen shot](assets/pageScreenShots/Screenshot 2020-11-28 at 04.48.25.png)
+![Screenshot](/assets/pageScreenShots/Screenshot 2020-11-28 at 04.48.25.png)
 
-![Screen shot](assets/pageScreenShots/Screenshot 2020-11-28 at 04.48.45.png)
+![Screenshot](/assets/pageScreenShots/Screenshot 2020-11-28 at 04.48.45.png)
