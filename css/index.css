@@ -216,6 +216,7 @@ details summary::-webkit-details-marker {
 @media (max-width: 863px) {
   .app_header {
     position: relative;
+    z-index: 10;
   }
 }
 

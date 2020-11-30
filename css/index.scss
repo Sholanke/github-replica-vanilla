@@ -71,6 +71,7 @@
   padding-bottom: 15px;
   @include mobile {
     position: relative;
+    z-index: 10;
   }
 
   .hamburger {
